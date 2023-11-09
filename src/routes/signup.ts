@@ -4,7 +4,7 @@ import { body, validationResult } from "express-validator";
 const router = express.Router();
 
 router.post(
-  "api/users/singup",
+  "/api/users/signup",
   [
     body("email").isEmail().withMessage("email must be valid"),
     body("password")
