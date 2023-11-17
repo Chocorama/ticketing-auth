@@ -6,6 +6,7 @@ import { signinRouter } from './routes/signin';
 import { singoutRouter } from './routes/signout';
 import { singupRouter } from './routes/signup';
 import { errorHandler } from './middlewares/error-handler';
+import { NotFoundError } from './errors/not-found-error';
 
 const app = express();
 app.use(json());
@@ -14,6 +15,10 @@ app.use(currentUserRouter);
 app.use(signinRouter);
 app.use(singoutRouter);
 app.use(singupRouter);
+
+app.all('*', () => {
+  throw new NotFoundError();
+});
 
 app.use(errorHandler);
 
