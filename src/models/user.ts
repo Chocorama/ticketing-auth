@@ -7,7 +7,7 @@ interface UserAttrs {
 }
 
 // interface that describes build function on User model
-interface UserModal extends mongoose.Model<UserDoc> {
+interface UserModel extends mongoose.Model<UserDoc> {
   build(attrs: UserAttrs): UserDoc;
 }
 
@@ -32,6 +32,6 @@ userSchema.statics.build = (attrs: UserAttrs) => {
   return new User(attrs);
 };
 
-const User = mongoose.model<UserDoc, UserModal>('User', userSchema);
+const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
 
 export { User };
