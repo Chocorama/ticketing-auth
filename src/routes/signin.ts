@@ -36,10 +36,7 @@ router.post(
     // generate JWT
     const userJwt = jwt.sign(
       { id: existingUser.id, email: existingUser.email },
-      process.env.JWT_KEY!,
-      {
-        expiresIn: '2m',
-      }
+      process.env.JWT_KEY!
     );
 
     // Store JWT on session Object
