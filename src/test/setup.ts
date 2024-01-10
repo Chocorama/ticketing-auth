@@ -6,6 +6,8 @@ let mongo: any;
 
 // allow jest to connect to mongodb before all tests
 beforeAll(async () => {
+  process.env.JWT_KEY = 'sdfgsdfg';
+
   mongo = await MongoMemoryServer.create();
   const mongoUri = mongo.getUri();
 
