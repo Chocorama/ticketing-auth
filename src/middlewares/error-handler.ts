@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { CustomError } from '../errors/custom-error';
 
+// catches all errors and Custom erros with the status code we added as an abstract
 export const errorHandler = (
   err: Error,
   req: Request,
